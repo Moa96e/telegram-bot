@@ -67,15 +67,17 @@ def send_help(message):
     )
     bot.reply_to(message, help_text)
 
+@bot.message_handler(commands=['exit'])
+def closebot(message):
+    bot.reply_to(message, "Congratulazioni hai spento il bot, ora vai a fare qualcosa di utile")
+    stop_event.set()
+
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
     bot.reply_to(message, message.text + ", molto interessante ma non mi interessa")
 
 
-@bot.message_handler(commands=['exit'])
-def closebot(message):
-    bot.reply_to(message, "Goodbye!")
-    stop_event.set()
+
 
 
 # Start polling in a separate thread
