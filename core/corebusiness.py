@@ -18,9 +18,9 @@ def send_waifu(message, categoryType, bot):
     try:
         category = message.text.strip().lower()
         print("ID: " + str(message.from_user.id))
-        print("Name: " + message.from_user.first_name + (
+        print("Name: " + str(message.from_user.first_name) + (
             " Surname: " + str(message.from_user.last_name) if message.from_user.last_name != None else ""))
-        print("Username: " + message.from_user.username)
+        print("Username: " + str(message.from_user.username))
         print("The category is: ", category)
         print("The category Type is: ", categoryType)
         waifu = get_waifu(categoryType, category)

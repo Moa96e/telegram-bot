@@ -22,7 +22,7 @@ if bot_token is None:
 bot = telebot.TeleBot(bot_token)
 
 # Create an event to signal when to stop the bot
-stop_event = Event()
+#stop_event = Event()
 
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
@@ -61,19 +61,20 @@ def send_help(message):
     help_text = (
         "/start or /hello - Greet the user\n"
         "/horoscope - Get the daily horoscope\n"
-        "/exit - Stop the bot\n"
         "/help - Show this help message\n"
         "/waifu - Get a waifu image"
     )
     bot.reply_to(message, help_text)
 
-@bot.message_handler(commands=['exit'])
-def closebot(message):
-    bot.reply_to(message, "Congratulazioni hai spento il bot, ora vai a fare qualcosa di utile")
-    stop_event.set()
+# @bot.message_handler(commands=['exit'])
+# def closebot(message):
+#     bot.reply_to(message, "Congratulazioni hai spento il bot, ora vai a fare qualcosa di utile")
+#     stop_event.set()
 
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
+    if str.__contains__(message.text.lower(), "sono damiano"):
+        bot.reply_to(message, "Damia, testa e non rompere il cazzo, scherzo sei er mejo")
     bot.reply_to(message, message.text + ", molto interessante ma non mi interessa")
 
 
@@ -86,8 +87,8 @@ import threading
 polling_thread = threading.Thread(target=bot.infinity_polling, kwargs={'timeout': 10, 'long_polling_timeout': 5})
 polling_thread.start()
 
-# Wait for the stop event
-stop_event.wait()
+# # Wait for the stop event
+# stop_event.wait()
 
 # Stop the bot
 bot.stop_polling()
