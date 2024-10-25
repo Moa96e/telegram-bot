@@ -1,7 +1,7 @@
 
 from telebot.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
-from src.service.horoscope import get_daily_horoscope
-from src.service.waifu import get_waifu
+from service.horoscope import get_daily_horoscope
+from service.waifu import get_waifu
 
 
 def send_horoscope(message, sign, bot):

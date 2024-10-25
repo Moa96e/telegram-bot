@@ -3,8 +3,8 @@ import telebot
 from dotenv import load_dotenv
 from threading import Event
 
-from src.core.corebusiness import send_waifu, send_horoscope
-from src.keyboard.keyboard_list import create_waify_category_keyboard, create_sfw_category_keyboard, \
+from core.corebusiness import send_waifu, send_horoscope
+from keyboard.keyboard_list import create_waify_category_keyboard, create_sfw_category_keyboard, \
     create_nsfw_category_keyboard, create_zodiac_keyboard, create_date_keyboard, category_type, zodiac_signs
 
 
