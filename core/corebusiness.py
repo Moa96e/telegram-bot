@@ -1,5 +1,4 @@
-
-from telebot.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
+from telebot.types import ReplyKeyboardRemove
 from service.horoscope import get_daily_horoscope
 from service.waifu import get_waifu
 
